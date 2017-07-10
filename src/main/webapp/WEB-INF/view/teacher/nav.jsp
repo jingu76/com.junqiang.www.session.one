@@ -50,7 +50,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">桂林电子科技大学教材订购系统</a>
+            <a class="navbar-brand" href="#">教材订购系统</a>
         </div>
         <!-- /.navbar-header -->
 

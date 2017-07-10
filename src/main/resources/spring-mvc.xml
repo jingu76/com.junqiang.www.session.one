@@ -11,10 +11,10 @@
     <!--<mvc:interceptors>-->
     <!--<mvc:interceptor>-->
     <!--<mvc:mapping path="/**"/>-->
-    <!--<bean class="com.giit.www.system.interceptor.LoginIntercepter"/>-->
+    <!--<bean class="com.junqiang.www.system.interceptor.LoginIntercepter"/>-->
     <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
-    <context:component-scan base-package="com.giit.www">
+    <context:component-scan base-package="com.junqiang.www">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
