@@ -3,7 +3,7 @@
 
 Working of Way:
 
-IntelliJ IDEA 提交代码到 GitHub (http://blog.csdn.net/jeffleo/article/details/56017644)
+# IntelliJ IDEA 提交代码到 GitHub (http://blog.csdn.net/jeffleo/article/details/56017644)
 
 一、设置相关绑定
 
