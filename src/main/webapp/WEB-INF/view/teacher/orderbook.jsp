@@ -7,13 +7,13 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">已添加教材</h1>
+            <h1 class="page-header">已添加耗材</h1>
         </div>
         <div class="row" id="addedBookContainer">
             <jsp:include page="/orderbook.do/orderbook_added.view"></jsp:include>
         </div>
         <div>
-            <h1 class="page-header">添加教材</h1>
+            <h1 class="page-header">添加耗材</h1>
         </div>
         <jsp:include page="/orderbook.do/orderbook_add.view"></jsp:include>
     </div>

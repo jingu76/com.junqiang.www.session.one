@@ -19,13 +19,13 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
-    <!--自动注册基于注解风格的DefaultAnnotationHandlerMapping和AnotationMethodHandlerAdapter-->
+    <!--自动注册基于注解风格的 DefaultAnnotationHandlerMapping和 AnotationMethodHandlerAdapter-->
     <!--此处使用conversionService为了自从注册HttpMessageConverter支持@RequestBody和@ResponseBody-->
     <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--用于解析@RequestBody-->
     <bean id="conversionService"
-          class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
+        class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
 
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

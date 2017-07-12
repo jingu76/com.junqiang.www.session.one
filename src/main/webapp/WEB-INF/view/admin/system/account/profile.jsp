@@ -6,7 +6,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">个人信息</h1>
+            <h1 class="page-header">个人信息管理</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -20,11 +20,11 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/account.do/update" method="get">
-                                <label>新密码</label>
+                                <label>修改密码</label>
                                 <input class="form-control" name="password">
                                 <label></label>
                                 <button type="submit"
-                                        class="btn btn-primary form-control">修改
+                                        class="btn btn-primary form-control">确定
                                 </button>
                             </form>
                         </div>
