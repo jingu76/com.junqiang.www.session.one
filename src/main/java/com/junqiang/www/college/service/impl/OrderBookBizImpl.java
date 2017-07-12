@@ -56,9 +56,9 @@ public class OrderBookBizImpl implements OrderBookBiz {
             Map.Entry<String, String[]> form = (Map.Entry<String, String[]>) iterator.next();
             String[] items = form.getValue();
 
-            int bookCount = (items.length - 1) / ITEMNUM;
-            int j = 1;
-            int secId = Short.valueOf(items[0]);
+            int bookCount = items.length  / ITEMNUM;
+            int j = 0;
+            int secId = 1;
             for (int i = 0; i < bookCount; i++) {
 
                 String bookTitle = items[j++].trim();
