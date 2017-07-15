@@ -54,6 +54,9 @@ fontend: javascript, html, ajax, jquery, boost
 
    d. 年度报表
 
-10.供应商列表
-...
+10.供应商维护
+   
+   a. 供应商信息
+   
+   b. 商品维护
 
