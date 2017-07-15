@@ -1,6 +1,7 @@
 OPEX计划系统
 
-backend:Shiro, springmvc, spring, mybias, mysql
+backend:Shiro, springmvc, spring, mybatis, mysql
+
 fontend: javascript, html, ajax, jquery, boost
 
 需求：
