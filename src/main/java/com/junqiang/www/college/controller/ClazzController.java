@@ -22,8 +22,10 @@ public class ClazzController {
 
     @RequiresRoles("admin")
     @RequestMapping("add")
-    public String add(String deptName, String specName, String year) {
-        clazzBiz.add(deptName, specName, year);
+    public String add(String deptName, String specName, String teamName) {
+
+        System.out.print(deptName+":"+specName+":"+teamName);
+        clazzBiz.add(deptName, specName, teamName);
         return "redirect:/clazz.do/clazz.view";
     }
 

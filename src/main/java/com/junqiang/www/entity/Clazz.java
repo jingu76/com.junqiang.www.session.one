@@ -8,6 +8,7 @@ public class Clazz {
     String className;
     String year;
     String specName;
+    String teamName;
 
     public String getClazzId() {
         return clazzId;
@@ -39,5 +40,8 @@ public class Clazz {
 
     public void setSpecName(String specName) {
         this.specName = specName;
+    }
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 }

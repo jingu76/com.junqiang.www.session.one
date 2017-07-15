@@ -26,12 +26,12 @@ public class ClazzBizImpl implements ClazzBiz {
     @Resource
     private SpecDao specDao;
 
-    public void add(String deptName, String specName, String year) {
+    public void add(String deptName, String specName, String teamName) {
         Clazz clazz = new Clazz();
         clazz.setSpecName(specName);
-        int classCount = clazzDao.getClassCount(specName, year) + 1;
-        clazz.setClazzId(year.substring(2) + deptDao.findIdByName(deptName) + specDao.findIdByName(specName) + classCount);
-        clazz.setYear(year);
+//        int classCount = clazzDao.getClassCount(specName, year) + 1;
+//        clazz.setClazzId(year.substring(2) + deptDao.findIdByName(deptName) + specDao.findIdByName(specName) + classCount);
+//        clazz.setYear(year);
         clazzDao.add(clazz);
     }
 

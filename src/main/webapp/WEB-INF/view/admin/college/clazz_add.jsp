@@ -31,13 +31,13 @@
                                 <select id="spec" class="form-control" name="specName">
                                     <option>-请选择-</option>
                                 </select>
-                                <label>团队（小组）名称</label>
+                                <label>团队名称</label>
                                 <!--
-                                <select class="form-control" name="year">
-                                    <c:forEach var="term" items="${termList}">
-                                        <option value="${term.val}">${term.text}</option>
-                                    </c:forEach>
-                                </select>
+                                                                            <select class="form-control" name="year">
+                                                                                <c:forEach var="term" items="${termList}">
+                                                                                    <option value="${term.val}">${term.text}</option>
+                                                                                </c:forEach>
+                                                                            </select>
                                 -->
                                 <input class="form-control" name="teamName">
                                 <%--<select class="form-control" name="departmentName">--%>

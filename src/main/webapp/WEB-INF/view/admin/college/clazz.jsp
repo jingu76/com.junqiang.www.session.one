@@ -9,12 +9,11 @@
         <div>
             <h1 class="page-header">团队管理</h1>
         </div>
-        <%--<c:forEach var="entrty" items="${classBelongSpec}">--%>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        团队管
+                        团队管理
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -23,24 +22,24 @@
 
                                 <thead>
                                 <tr>
+                                    <th>所属分公司</th>
                                     <th>所属部门</th>
-                                    <th>团队号</th>
-                                    <th></th>
+                                    <th>团队名称</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <%--<c:forEach var="className" items="${entrty.value}">--%>
                                 <c:forEach var="clazz" items="${clazzList}">
                                     <tr>
-                                        <td>${clazz.specName}</td>
                                         <td>${clazz.clazzId}</td>
+                                        <td>${clazz.specName}</td>
+                                        <td>${clazz.teamName}</td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/clazz.do/delete?clazzId=${clazz.clazzId}"
                                                onclick="return confirm('是否要删除该团队')">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
-                                <%--</c:forEach>--%>
                                 </tbody>
                             </table>
                         </div>
@@ -56,7 +55,7 @@
         <%--</c:forEach>--%>
 
     </div>
-    <a href="${pageContext.request.contextPath}/clazz.do/clazz_add.view" class="btn btn-primary" role="button">添加班级</a>
+    <a href="${pageContext.request.contextPath}/clazz.do/clazz_add.view" class="btn btn-primary" role="button">添加团队</a>
     <!-- /.container-fluid -->
 </div>
 </div>

@@ -103,7 +103,7 @@
                                 <a href="${pageContext.request.contextPath}/spec.do/spec.view"> 部门管理</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/clazz.do/clazz.view"> 小组管理</a>
+                                <a href="${pageContext.request.contextPath}/clazz.do/clazz.view"> 团队管理</a>
                             </li>
                             <li>
                                 <a href="${pageContext.request.contextPath}/course.do/course.view"> 耗材类目管理</a>

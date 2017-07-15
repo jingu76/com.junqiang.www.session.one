@@ -11,6 +11,7 @@
         <result property="clazzName" column="class_name"/>
         <result property="year" column="year"/>
         <result property="specName" column="spec_name"/>
+        <result property="teamName" column="team_name"/>
     </resultMap>
 
     <select id="findAll" resultMap="clazz_map">
@@ -18,7 +19,7 @@
     </select>
 
     <insert id="add" parameterType="Clazz">
-        INSERT INTO class(class_id,class_name,year,spec_name) VALUES (#{clazzId},#{className},#{year},#{specName})
+        INSERT INTO class(class_id,class_name,team_name) VALUES (#{clazzId},#{className},#{teamName})
     </insert>
 
     <delete id="delete" parameterType="int">
