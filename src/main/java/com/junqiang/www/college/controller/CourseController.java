@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
-/**
- * Created by c0de8ug on 16-2-12.
- */
 @Controller
 @RequestMapping("course.do")
 public class CourseController {
