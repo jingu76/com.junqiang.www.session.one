@@ -6,7 +6,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">添加班级</h1>
+            <h1 class="page-header">添加团队</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -14,29 +14,32 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        班级信息
+                        团队信息
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/clazz.do/add" method="get">
-                                <label>所属院系</label>
+                                <label>所属分公司</label>
                                 <select onchange="test(this)" class="form-control" name="deptName">
                                     <option>-请选择-</option>
                                     <c:forEach var="deptName" items="${deptNameList}">
                                         <option>${deptName}</option>
                                     </c:forEach>
                                 </select>
-                                <label>所属专业</label>
+                                <label>所属部门</label>
                                 <select id="spec" class="form-control" name="specName">
                                     <option>-请选择-</option>
                                 </select>
-                                <label>开设年份</label>
+                                <label>团队（小组）名称</label>
+                                <!--
                                 <select class="form-control" name="year">
                                     <c:forEach var="term" items="${termList}">
                                         <option value="${term.val}">${term.text}</option>
                                     </c:forEach>
                                 </select>
+                                -->
+                                <input class="form-control" name="teamName">
                                 <%--<select class="form-control" name="departmentName">--%>
                                 <%--<c:forEach var="speciality" items="${speclities}">--%>
                                 <%--<option>${speciality}</option>--%>

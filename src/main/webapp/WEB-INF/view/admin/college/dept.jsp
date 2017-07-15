@@ -5,7 +5,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">系部管理</h1>
+            <h1 class="page-header">分公司管理</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        系信息
+                        分公司信息
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -21,7 +21,7 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>系名</th>
+                                    <th>分公司名称</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -35,13 +35,13 @@
                                         </td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/dept.do/delete?deptId=${dept.deptId}"
-                                               onclick="return confirm('是否要删除该系')">删除</a>
+                                               onclick="return confirm('是否要删除该分公司信息')">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/dept.do/dept_add.view" class="btn btn-primary" role="button">添加系</a>
+                            <a href="${pageContext.request.contextPath}/dept.do/dept_add.view" class="btn btn-primary" role="button">添加分公司信息</a>
                         </div>
                         <!-- /.table-responsive -->
                     </div>

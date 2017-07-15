@@ -5,7 +5,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">添加课程</h1>
+            <h1 class="page-header">添加耗材</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -13,13 +13,13 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        课程信息
+                        耗材信息
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/course.do/add" method="get">
-                                <label>课程名</label>
+                                <label>耗材名称</label>
                                 <input class="form-control" name="courseTitle">
 
                                 <%--<select name="province" id="province"--%>
@@ -38,20 +38,18 @@
                                 <%--<option value="湖州">湖州</option>--%>
                                 <%--</select> 市--%>
 
-                                <label>学分</label>
+                                <label>价格</label>
                                 <input type="number" class="form-control" name="credits">
-                                <label>所属专业</label>
+                                <label>所属部门</label>
                                 <select class="form-control" name="speciality">
                                     <c:forEach var="specName" items="${specNameList}">
                                         <option>${specName}</option>
                                     </c:forEach>
                                 </select>
-                                <label>课程类型</label>
+                                <label>耗材类型</label>
                                 <select class="form-control" name="type">
-                                    <option>必修课/公共课</option>
-                                    <option>选修课/公共课</option>
-                                    <option>限选课/专业课</option>
-                                    <option>选修课/专业课</option>
+                                    <option>易耗品</option>
+                                    <option>耐用型</option>
                                 </select>
                                 <label></label>
                                 <button type="submit"

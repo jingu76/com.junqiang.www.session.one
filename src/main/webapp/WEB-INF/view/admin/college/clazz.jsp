@@ -7,14 +7,14 @@
 
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">班级管理</h1>
+            <h1 class="page-header">团队管理</h1>
         </div>
         <%--<c:forEach var="entrty" items="${classBelongSpec}">--%>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        班级信息
+                        团队管
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -23,8 +23,8 @@
 
                                 <thead>
                                 <tr>
-                                    <th>所属专业</th>
-                                    <th>班级号</th>
+                                    <th>所属部门</th>
+                                    <th>团队号</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -36,7 +36,7 @@
                                         <td>${clazz.clazzId}</td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/clazz.do/delete?clazzId=${clazz.clazzId}"
-                                               onclick="return confirm('是否要删除该专业')">删除</a>
+                                               onclick="return confirm('是否要删除该团队')">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

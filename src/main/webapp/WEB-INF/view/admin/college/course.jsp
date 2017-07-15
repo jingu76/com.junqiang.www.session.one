@@ -5,7 +5,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">课程管理</h1>
+            <h1 class="page-header">耗材管理</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -14,20 +14,18 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        课程信息
                     </div>
 
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-
                                 <thead>
                                 <tr>
-                                    <th>名称</th>
-                                    <th>类型</th>
-                                    <th>学分</th>
-                                    <th>所属专业</th>
+                                    <th>耗材名称</th>
+                                    <th>型号</th>
+                                    <th>价格</th>
+                                    <th>所属团队名称</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -40,7 +38,7 @@
                                         <td>${course.speciality}</td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/course.do/delete?courseTitle=${course.courseTitle}"
-                                               onclick="return confirm('是否要删除该课')">删除</a>
+                                               onclick="return confirm('是否要删除该耗材')">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -22,7 +22,7 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>专业名</th>
+                                        <th>部门名称</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -36,7 +36,7 @@
                                             </td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/spec.do/delete?specName=${specName}"
-                                                   onclick="return confirm('是否要删除该专业')">删除</a>
+                                                   onclick="return confirm('是否要删除该部门')">删除</a>
                                             </td>
                                         </tr>
                                     </c:forEach>

@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>耗材计划系统</title>
+    <title>浙江建德尖峰水泥有限公司耗材计划系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css"
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">耗材预定系统</a>
+            <a class="navbar-brand" href="#">浙江建德尖峰水泥有限公司耗材计划系统</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -82,7 +82,8 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="${pageContext.request.contextPath}/main.do/admin"><i class="fa fa-book fa-fw"></i> 控制面板</a>
+                        <a href="${pageContext.request.contextPath}/main.do/admin"><i class="fa fa-book fa-fw"></i>
+                         控制面板</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/user.do/user.view"><i class="fa fa-book fa-fw"></i>
@@ -93,38 +94,34 @@
                             角色管理</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> 学院管理<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> 公司管理<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/"> 整体概况</a>
+                                <a href="${pageContext.request.contextPath}/dept.do/dept.view"> 分公司设置</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/dept.do/dept.view"> 系部设置</a>
+                                <a href="${pageContext.request.contextPath}/spec.do/spec.view"> 部门管理</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/spec.do/spec.view"> 专业设置</a>
+                                <a href="${pageContext.request.contextPath}/clazz.do/clazz.view"> 小组管理</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/clazz.do/clazz.view"> 班级管理</a>
+                                <a href="${pageContext.request.contextPath}/course.do/course.view"> 耗材类目管理</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/course.do/course.view"> 添加课程</a>
+                                <a href="${pageContext.request.contextPath}/section.do/section.view"> 耗材申请</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/section.do/section.view"> 课程安排</a>
+                                <a href="${pageContext.request.contextPath}/student.do/student.view"> 小组负责人管理</a>
                             </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/student.do/student.view"> 学生管理</a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/orderbook.do/orderbook_review.view/">
-                                    秘书审核</a>
-                            </li>
+                          </ul>
 
-                        </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
+                    <li>
+                        <a href="${pageContext.request.contextPath}/orderbook.do/orderbook_review.view/"><i class="fa fa-book fa-fw"></i>
+                            耗材申请审核</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
