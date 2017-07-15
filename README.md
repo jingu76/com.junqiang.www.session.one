@@ -46,7 +46,7 @@ fontend: javascript, html, ajax, jquery, boost
 
 9.  MATRIX
 
-      a. 报表
+      a. 报表 
 
       b. 数据分析
 
