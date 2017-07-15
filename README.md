@@ -19,8 +19,8 @@ fontend: javascript, html, ajax, jquery, boost
        a. 修改用户信息，包括密码
   
        b. MD5密码加密
-
-       c. 用户角色增删改
+       
+       c. 用户角色增删改
 
        d. 权限增删改
     
