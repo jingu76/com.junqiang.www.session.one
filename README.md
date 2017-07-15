@@ -4,7 +4,7 @@ backend:Shiro, springmvc, spring, mybatis, mysql
 
 fontend: javascript, html, ajax, jquery, boost
 
-需求：
+功能点：
 
 1. 登录、登出
 
