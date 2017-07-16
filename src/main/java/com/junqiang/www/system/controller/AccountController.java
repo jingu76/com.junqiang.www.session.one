@@ -3,6 +3,8 @@ package com.junqiang.www.system.controller;
 import com.junqiang.www.system.service.AccountBiz;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,12 +18,14 @@ import javax.servlet.http.HttpSession;
 
 @RequestMapping("account.do")
 public class AccountController {
+    private static Logger logger = LoggerFactory.getLogger(AccountController.class);
     @Resource(name = "accountBizImpl")
     private AccountBiz accountBiz;
 
     @RequiresAuthentication
     @RequestMapping("profile.view")
     public String profileView() {
+        logger.trace("profileView");
         return "/admin/system/account/profile";
 
     }
@@ -29,6 +33,7 @@ public class AccountController {
     @RequiresAuthentication
     @RequestMapping("update")
     public String update(HttpSession session, String password) {
+        logger.trace("update");
         String id = (String) session.getAttribute("username");
 
         accountBiz.updatePassword(id, password);
