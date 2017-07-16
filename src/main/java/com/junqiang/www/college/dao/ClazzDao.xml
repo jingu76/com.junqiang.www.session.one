@@ -12,6 +12,8 @@
         <result property="year" column="year"/>
         <result property="specName" column="spec_name"/>
         <result property="teamName" column="team_name"/>
+        <result property="compName" column="comp_name"/>
+        <result property="deptName" column="dept_name"/>
     </resultMap>
 
     <select id="findAll" resultMap="clazz_map">
@@ -19,11 +21,15 @@
     </select>
 
     <insert id="add" parameterType="Clazz">
-        INSERT INTO class(class_id,class_name,team_name) VALUES (#{clazzId},#{className},#{teamName})
+        INSERT INTO class(comp_name, dept_name, team_name) VALUES (#{compName},#{deptName},#{teamName})
     </insert>
 
-    <delete id="delete" parameterType="int">
-        DELETE FROM class WHERE class_id = #{value}
+    <!--<delete id="delete" parameterType="int">-->
+        <!--DELETE FROM class WHERE class_id = #{value}-->
+    <!--</delete>-->
+
+    <delete id="delete" parameterType="String">
+        DELETE FROM class WHERE team_name = #{value}
     </delete>
 
     <select id="getClassCount" parameterType="map" resultType="int">

@@ -19,19 +19,23 @@ public class ClazzController {
 
     @RequiresRoles("admin")
     @RequestMapping("add")
-    public String add(String deptName, String specName, String teamName) {
+    public String add(String compName, String deptName, String teamName) {
 
-        System.out.print(deptName+":"+specName+":"+teamName);
-        clazzBiz.add(deptName, specName, teamName);
+        System.out.print(compName+":"+deptName+":"+teamName);
+        clazzBiz.add(compName, deptName, teamName);
         return "redirect:/clazz.do/clazz.view";
     }
 
     @RequiresRoles("admin")
     @RequestMapping("delete")
-    public String delete(int clazzId) {
-        clazzBiz.delete(clazzId);
+    public String delete(String teamName) {
+        clazzBiz.delete(teamName);
         return "redirect:/clazz.do/clazz.view";
     }
+//    public String delete(int clazzId) {
+//        clazzBiz.delete(clazzId);
+//        return "redirect:/clazz.do/clazz.view";
+//    }
 
     @RequiresRoles("admin")
     @RequestMapping("clazz.view")

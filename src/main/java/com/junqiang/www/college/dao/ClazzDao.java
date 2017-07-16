@@ -10,9 +10,10 @@ import java.util.List;
  */
 public interface ClazzDao {
     public void add(Clazz clazz);
-//    public void add(@Param("dep") String specName, @Param("year") String year);
 
-    public void delete(int clazzId);
+//    public void delete(int clazzId);
+
+    public void delete(String teamName);
 
     public List<Class> findAll();
 

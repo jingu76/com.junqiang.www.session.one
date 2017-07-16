@@ -9,6 +9,8 @@ public class Clazz {
     String year;
     String specName;
     String teamName;
+    String compName;
+    String deptName;
 
     public String getClazzId() {
         return clazzId;
@@ -46,5 +48,19 @@ public class Clazz {
     }
     public String getTeamName() {
         return teamName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setCompName(String compName) {
+        this.compName = compName;
+    }
+    public String getCompName() {
+        return compName;
     }
 }
