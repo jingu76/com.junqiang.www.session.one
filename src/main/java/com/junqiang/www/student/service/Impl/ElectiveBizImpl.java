@@ -23,16 +23,29 @@ public class ElectiveBizImpl implements ElectiveBiz {
     private SectionDao sectionDao;
 
     public void add(int secId, String stdId) {
-        takesDao.add(secId, stdId);
+        try {
+            takesDao.add(secId, stdId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<SectionCustom> findAllSection() {
-        return sectionDao.findAllCustom();
+        try {
+            return sectionDao.findAllCustom();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void delete(int secId, String stdId) {
-        takesDao.delete(secId,stdId);
+        try {
+            takesDao.delete(secId, stdId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

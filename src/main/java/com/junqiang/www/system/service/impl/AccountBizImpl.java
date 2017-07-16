@@ -18,12 +18,21 @@ public class AccountBizImpl implements AccountBiz {
 
     @Override
     public User findByIdAndPassword(String username, String password) {
-        return userDao.findByIdAndPassword(username, password);
+        try {
+            return userDao.findByIdAndPassword(username, password);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
     @Override
     public void updatePassword(String id, String password) {
-        userDao.updatePassword(id, password);
+        try {
+            userDao.updatePassword(id, password);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

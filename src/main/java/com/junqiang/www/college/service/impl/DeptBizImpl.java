@@ -19,19 +19,36 @@ public class DeptBizImpl implements DeptBiz {
     private DeptDao deptDao;
 
     public List<Dept> findAll() {
-        return deptDao.findAll();
+        try {
+            return deptDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void add(String deptName) {
-        deptDao.add(deptName);
+        try {
+            deptDao.add(deptName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void update(Dept dept) {
-        deptDao.update(dept);
+        try {
+            deptDao.update(dept);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void delete(int deptId) {
-        deptDao.delete(deptId);
+        try {
+            deptDao.delete(deptId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

@@ -26,35 +26,61 @@ public class RoleBizImpl implements RoleBiz {
     private ResourceBiz resourceBiz;
 
     public void createRole(Role role) {
-        roleDao.createRole(role);
+        try {
+            roleDao.createRole(role);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void updateRole(Role role) {
-         roleDao.updateRole(role);
+        try {
+            roleDao.updateRole(role);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void deleteRole(Long roleId) {
-        roleDao.deleteRole(roleId);
+        try {
+            roleDao.deleteRole(roleId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public Role findOne(Long roleId) {
-        return roleDao.findOne(roleId);
+        try {
+            return roleDao.findOne(roleId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<Role> findAll() {
-        return roleDao.findAll();
+        try {
+            return roleDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public Set<String> findRoles(Long... roleIds) {
         Set<String> roles = new HashSet<String>();
-        for (Long roleId : roleIds) {
-            Role role = findOne(roleId);
-            if (role != null) {
-                roles.add(role.getRole());
+        try {
+            for (Long roleId : roleIds) {
+                Role role = findOne(roleId);
+                if (role != null) {
+                    roles.add(role.getRole());
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return roles;
     }
@@ -62,12 +88,17 @@ public class RoleBizImpl implements RoleBiz {
     @Override
     public Set<String> findPermissions(Long[] roleIds) {
         Set<Long> resourceIds = new HashSet<Long>();
-        for (Long roleId : roleIds) {
-            Role role = findOne(roleId);
-            if (role != null) {
-                resourceIds.addAll(role.getResourceIds());
+        try {
+            for (Long roleId : roleIds) {
+                Role role = findOne(roleId);
+                if (role != null) {
+                    resourceIds.addAll(role.getResourceIds());
+                }
             }
+            return resourceBiz.findPermissions(resourceIds);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return resourceBiz.findPermissions(resourceIds);
     }
 }

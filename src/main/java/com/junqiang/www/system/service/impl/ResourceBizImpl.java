@@ -25,37 +25,65 @@ public class ResourceBizImpl implements ResourceBiz {
 
     @Override
     public Resource createResource(Resource resource) {
-        return resourceDao.createResource(resource);
+        try {
+            return resourceDao.createResource(resource);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public Resource updateResource(Resource resource) {
-        return resourceDao.updateResource(resource);
+        try {
+            return resourceDao.updateResource(resource);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void deleteResource(Long resourceId) {
-        resourceDao.deleteResource(resourceId);
+        try {
+            resourceDao.deleteResource(resourceId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public Resource findOne(Long resourceId) {
-        return resourceDao.findOne(resourceId);
+        try {
+            return resourceDao.findOne(resourceId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<Resource> findAll() {
-        return resourceDao.findAll();
+        try {
+            return resourceDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public Set<String> findPermissions(Set<Long> resourceIds) {
         Set<String> permissions = new HashSet<String>();
-        for (Long resourceId : resourceIds) {
-            Resource resource = findOne(resourceId);
-            if (resource != null && !StringUtils.isEmpty(resource.getPermission())) {
-                permissions.add(resource.getPermission());
+        try {
+            for (Long resourceId : resourceIds) {
+                Resource resource = findOne(resourceId);
+                if (resource != null && !StringUtils.isEmpty(resource.getPermission())) {
+                    permissions.add(resource.getPermission());
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return permissions;
     }
@@ -64,17 +92,21 @@ public class ResourceBizImpl implements ResourceBiz {
     public List<Resource> findMenus(Set<String> permissions) {
         List<Resource> allResources = findAll();
         List<Resource> menus = new ArrayList<Resource>();
-        for (Resource resource : allResources) {
-            if (resource.isRootNode()) {
-                continue;
+        try {
+            for (Resource resource : allResources) {
+                if (resource.isRootNode()) {
+                    continue;
+                }
+                if (resource.getType() != Resource.ResourceType.menu) {
+                    continue;
+                }
+                if (!hasPermission(permissions, resource)) {
+                    continue;
+                }
+                menus.add(resource);
             }
-            if (resource.getType() != Resource.ResourceType.menu) {
-                continue;
-            }
-            if (!hasPermission(permissions, resource)) {
-                continue;
-            }
-            menus.add(resource);
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return menus;
     }
@@ -83,12 +115,16 @@ public class ResourceBizImpl implements ResourceBiz {
         if (StringUtils.isEmpty(resource.getPermission())) {
             return true;
         }
-        for (String permission : permissions) {
-            WildcardPermission p1 = new WildcardPermission(permission);
-            WildcardPermission p2 = new WildcardPermission(resource.getPermission());
-            if (p1.implies(p2) || p2.implies(p1)) {
-                return true;
+        try {
+            for (String permission : permissions) {
+                WildcardPermission p1 = new WildcardPermission(permission);
+                WildcardPermission p2 = new WildcardPermission(resource.getPermission());
+                if (p1.implies(p2) || p2.implies(p1)) {
+                    return true;
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return false;
     }

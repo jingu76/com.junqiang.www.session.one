@@ -32,11 +32,19 @@ public class ClazzBizImpl implements ClazzBiz {
 //        int classCount = clazzDao.getClassCount(specName, year) + 1;
 //        clazz.setClazzId(year.substring(2) + deptDao.findIdByName(deptName) + specDao.findIdByName(specName) + classCount);
 //        clazz.setYear(year);
-        clazzDao.add(clazz);
+        try {
+            clazzDao.add(clazz);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void delete(int clazzId) {
-        clazzDao.delete(clazzId);
+        try {
+            clazzDao.delete(clazzId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public List<Class> findAll() {
@@ -62,15 +70,19 @@ public class ClazzBizImpl implements ClazzBiz {
     @Override
     public String findDeptAndSpecJson() {
         Gson gson = new Gson();
-
-        List<DeptAndSpec> deptAndSpecList = specDao.findDeptAndSpec();
-
         HashMap<String, List<String>> map = new HashMap();
+        try {
+            List<DeptAndSpec> deptAndSpecList = specDao.findDeptAndSpec();
 
 
-        for (DeptAndSpec deptAndSpec : deptAndSpecList) {
-            map.put(deptAndSpec.getDeptName(), deptAndSpec.getSpecName());
+            for (DeptAndSpec deptAndSpec : deptAndSpecList) {
+                map.put(deptAndSpec.getDeptName(), deptAndSpec.getSpecName());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
+
         String json = gson.toJson(map);
         return json;
     }
@@ -79,7 +91,12 @@ public class ClazzBizImpl implements ClazzBiz {
     //感觉这里应该是取决于biz的BEAN在spring中的作用域
     @Override
     public List<String> findDeptNameList() {
-        return deptDao.findAllDeptName();
+        try {
+            return deptDao.findAllDeptName();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

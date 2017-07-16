@@ -42,36 +42,40 @@ public class UserBizImpl implements UserBiz {
     @Override
     public List<UserVo> findAll() throws InvocationTargetException, IllegalAccessException {
         List<UserVo> userVoList = new ArrayList<>();
-        List userList = userDao.findAll();
+        try {
+            List userList = userDao.findAll();
 
 
-        Iterator iterator = userList.iterator();
+            Iterator iterator = userList.iterator();
 
-        while (iterator.hasNext()) {
-            StringBuilder s = new StringBuilder();
-            User user = (User) iterator.next();
-            List<Long> roleIds = user.getRoleIds();
+            while (iterator.hasNext()) {
+                StringBuilder s = new StringBuilder();
+                User user = (User) iterator.next();
+                List<Long> roleIds = user.getRoleIds();
 
-            UserVo userVo = new UserVo();
-            BeanUtils.copyProperties(userVo, user);
+                UserVo userVo = new UserVo();
+                BeanUtils.copyProperties(userVo, user);
 
-            if (roleIds != null) {
-                int i = 0;
-                int size = roleIds.size();
-                for (; i < size - 1; i++) {
+                if (roleIds != null) {
+                    int i = 0;
+                    int size = roleIds.size();
+                    for (; i < size - 1; i++) {
+                        Role role = roleDao.findOne(roleIds.get(i));
+
+                        s.append(role.getDescription());
+                        s.append(",");
+                    }
                     Role role = roleDao.findOne(roleIds.get(i));
-
                     s.append(role.getDescription());
-                    s.append(",");
+                    userVo.setRoleIdsStr(s.toString());
                 }
-                Role role = roleDao.findOne(roleIds.get(i));
-                s.append(role.getDescription());
-                userVo.setRoleIdsStr(s.toString());
+
+
+                userVoList.add(userVo);
+
             }
-
-
-            userVoList.add(userVo);
-
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
         return userVoList;
@@ -79,28 +83,40 @@ public class UserBizImpl implements UserBiz {
 
     @Override
     public User findById(String id) {
-        return userDao.findById(id);
+        try {
+            return userDao.findById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void update(User user) {
-        userDao.update(user);
+        try {
+            userDao.update(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void add(User user) {
         //TODO 这里为了完成功能直接按照权限判断添加到staff中,应该新增一个前端页面,进行教师的管理- -!!时间没了,这么做太2了
+        try {
+            passwordHelper.encryptPassword(user);
+            userDao.add(user);
+            String id = user.getUserId();
+            String teacherRoleId = roleDao.findByDescription("老师").getId().toString();
+            if (user.getRoleIdsStr().indexOf(teacherRoleId) != -1) {
+                Staff staff = new Staff();
+                staff.setStaffId(id);
+                staff.setStaffName(id);
+                staffDao.add(staff);
+            }
 
-        passwordHelper.encryptPassword(user);
-        userDao.add(user);
-        String id = user.getUserId();
-        String teacherRoleId = roleDao.findByDescription("老师").getId().toString();
-        if (user.getRoleIdsStr().indexOf(teacherRoleId) != -1) {
-            Staff staff = new Staff();
-            staff.setStaffId(id);
-            staff.setStaffName(id);
-            staffDao.add(staff);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
 
     }
 
@@ -108,39 +124,62 @@ public class UserBizImpl implements UserBiz {
     @Transactional
     @Override
     public void delete(String id) {
-        userDao.delete(id);
+        try {
+            userDao.delete(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void changePassword(String userId, String newPassword) {
-        User user = userDao.findById(userId);
-        user.setPassword(newPassword);
-        passwordHelper.encryptPassword(user);
-        userDao.update(user);
+        try {
+            User user = userDao.findById(userId);
+            user.setPassword(newPassword);
+            passwordHelper.encryptPassword(user);
+            userDao.update(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public User findByUsername(String username) {
-        return userDao.findById(username);
+        try {
+            return userDao.findById(username);
+        }catch (Exception e){
+            e.printStackTrace();
+            return  null;
+        }
     }
 
     @Override
     public Set<String> findRoles(String username) {
-        User user = findByUsername(username);
-        if (user == null) {
-            return Collections.EMPTY_SET;
+        try {
+            User user = findByUsername(username);
+            if (user == null) {
+                return Collections.EMPTY_SET;
+            }
+            return roleBiz.findRoles(user.getRoleIds().toArray(new Long[0]));
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return roleBiz.findRoles(user.getRoleIds().toArray(new Long[0]));
     }
 
     @Override
     public Set<String> findPermissions(String username) {
-        User user = findByUsername(username);
-        if (user == null) {
-            return Collections.EMPTY_SET;
+        try {
+            User user = findByUsername(username);
+            if (user == null) {
+                return Collections.EMPTY_SET;
+            }
+            return roleBiz.findPermissions(user.getRoleIds().toArray(new Long[0]));
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
-        return roleBiz.findPermissions(user.getRoleIds().toArray(new Long[0]));
     }
 }
 
