@@ -40,12 +40,22 @@ public class ClazzBizImpl implements ClazzBiz {
     }
 
     public List<Class> findAll() {
-        return clazzDao.findAll();
+        try {
+            return clazzDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<DeptAndSpec> findDeptAndSpec() {
-        return specDao.findDeptAndSpec();
+        try {
+            return specDao.findDeptAndSpec();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
