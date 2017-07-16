@@ -44,4 +44,7 @@ public class Clazz {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
+    public String getTeamName() {
+        return teamName;
+    }
 }

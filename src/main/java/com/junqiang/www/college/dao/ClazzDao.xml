@@ -8,7 +8,7 @@
 
     <resultMap id="clazz_map" type="Clazz">
         <id property="clazzId" column="class_id"/>
-        <result property="clazzName" column="class_name"/>
+        <result property="className" column="class_name"/>
         <result property="year" column="year"/>
         <result property="specName" column="spec_name"/>
         <result property="teamName" column="team_name"/>
