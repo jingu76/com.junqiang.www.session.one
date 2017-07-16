@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 年 07 月 15 日 18:12
+-- 生成日期: 2017 年 07 月 16 日 18:44
 -- 服务器版本: 5.5.36
 -- PHP 版本: 5.3.28
 
@@ -51,20 +51,23 @@ INSERT INTO `book` (`book_title`, `isbn`, `date_of_printing`, `author`, `press`,
 --
 
 CREATE TABLE IF NOT EXISTS `class` (
-  `class_id` varchar(50) NOT NULL DEFAULT '',
-  `class_name` varchar(50) DEFAULT NULL,
+  `class_id` varchar(32) DEFAULT '',
+  `class_name` varchar(50) DEFAULT '',
   `year` varchar(20) DEFAULT NULL,
   `spec_name` varchar(15) DEFAULT NULL,
   `team_name` varchar(50) NOT NULL DEFAULT '未名团队',
-  PRIMARY KEY (`class_id`)
+  `comp_name` varchar(20) NOT NULL,
+  `dept_name` varchar(20) NOT NULL,
+  PRIMARY KEY (`team_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `class`
 --
 
-INSERT INTO `class` (`class_id`, `class_name`, `year`, `spec_name`, `team_name`) VALUES
-('1', '2', '2', '12', '1212');
+INSERT INTO `class` (`class_id`, `class_name`, `year`, `spec_name`, `team_name`, `comp_name`, `dept_name`) VALUES
+('', '', NULL, NULL, '刘健团队', '大冶尖峰水泥有限公司', '研发部'),
+('', '', NULL, NULL, '顾静军团队', '大冶尖峰水泥有限公司', '财务部');
 
 -- --------------------------------------------------------
 
@@ -85,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `course` (
 --
 
 INSERT INTO `course` (`course_title`, `type`, `credits`, `speciality`) VALUES
+('萨达是', '易耗品', 12, '财务部'),
 ('阿萨德才', '耐用型', 34, '浙江大学联合研究室');
 
 -- --------------------------------------------------------
@@ -190,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `section` (
   `limitCount` int(11) DEFAULT NULL,
   `staff_id` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`sec_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

@@ -24,10 +24,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by c0de8ug on 16-2-13.
- */
-//TODO URL我自己定义全小写
 @Controller
 @RequestMapping("orderbook.do")
 
