@@ -13,7 +13,10 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
+/**
+ * Created by c0de8ug on 16-2-11.
+ */
+@Service("clazzBizImpl")
 public class ClazzBizImpl implements ClazzBiz {
 
     @Resource
@@ -23,21 +26,18 @@ public class ClazzBizImpl implements ClazzBiz {
     @Resource
     private SpecDao specDao;
 
-    public void add(String compName, String deptName, String teamName) {
+    public void add(String deptName, String specName, String teamName) {
         Clazz clazz = new Clazz();
-        clazz.setCompName(compName);
-        clazz.setDeptName(deptName);
-        clazz.setTeamName(teamName);
+        clazz.setSpecName(specName);
+//        int classCount = clazzDao.getClassCount(specName, year) + 1;
+//        clazz.setClazzId(year.substring(2) + deptDao.findIdByName(deptName) + specDao.findIdByName(specName) + classCount);
+//        clazz.setYear(year);
         clazzDao.add(clazz);
     }
 
 //    public void delete(int clazzId) {
 //        clazzDao.delete(clazzId);
 //    }
-
-    public void delete(String teamName) {
-        clazzDao.delete(teamName);
-    }
 
     public List<Class> findAll() {
         return clazzDao.findAll();

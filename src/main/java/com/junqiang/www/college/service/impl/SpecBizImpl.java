@@ -23,26 +23,48 @@ public class SpecBizImpl implements SpecBiz {
     private DeptDao deptDao;
 
     public List<DeptAndSpec> findDeptAndSpec() {
-        return specDao.findDeptAndSpec();
+        try {
+            return specDao.findDeptAndSpec();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void update(String specName, String newSpecName) {
-        specDao.update(specName, newSpecName);
+        try {
+            specDao.update(specName, newSpecName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void add(Spec spec) {
-        specDao.add(spec);
+        try {
+            specDao.add(spec);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(String specName) {
-        specDao.delete(specName);
+        try {
+            specDao.delete(specName);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public List<String> findDpet() {
-        return deptDao.findAllDeptName();
+        try {
+            return deptDao.findAllDeptName();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

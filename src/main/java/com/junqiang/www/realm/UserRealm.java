@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 // 这里这个拦截器完成了用户名和密码的验证，验证成功后又给用赋角色和权限
 
 public class UserRealm extends AuthorizingRealm {
-
     @Resource(name="userBizImpl")
     private UserBiz userBiz;
 
@@ -29,9 +28,9 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        logger.trace(" doGetAuthorizationInfo");
 
         String username = (String)principals.getPrimaryPrincipal();
-        System.out.println("角色和权限验证" + username);
         logger.debug("角色和权限验证" + username);
 
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
@@ -45,7 +44,7 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
+        logger.trace(" doGetAuthorizationInfo:"+token);
         String username = (String)token.getPrincipal();
         //从数据库中获取用户信息
         User user = userBiz.findById(username);

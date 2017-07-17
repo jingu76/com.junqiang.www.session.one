@@ -7,6 +7,8 @@ import com.junqiang.www.system.service.UserBiz;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +23,13 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class LoginController {
-
+    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
     @Resource(name = "userBizImpl")
     UserBiz userBiz;
 
     @RequestMapping("login")
     public String login(HttpServletRequest req, Model model, HttpSession session) {
+        logger.trace("login");
         String exceptionClassName = (String) req.getAttribute("shiroLoginFailure");
         String error = null;
         if (UnknownAccountException.class.getName().equals(exceptionClassName)) {

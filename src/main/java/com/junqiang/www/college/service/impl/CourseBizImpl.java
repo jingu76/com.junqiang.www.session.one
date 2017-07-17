@@ -24,21 +24,40 @@ public class CourseBizImpl implements CourseBiz {
 
     @Override
     public List<Course> findAll() {
-        return courseDao.findAll();
+        try {
+            return courseDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<String> findAllSpecName() {
-        return specDao.findAllSpecName();
+        try {
+            return specDao.findAllSpecName();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void add(Course course) {
-        courseDao.add(course);
+        try {
+            courseDao.add(course);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(String courseTitle) {
-        courseDao.delete(courseTitle);
+        try {
+            courseDao.delete(courseTitle);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

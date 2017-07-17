@@ -13,7 +13,7 @@ public interface ClazzBiz {
 
 //    public void delete(int clazzId);
 
-    public void delete(String teamName);
+//    public void delete(String teamName);
 
     public List<Class> findAll();
 

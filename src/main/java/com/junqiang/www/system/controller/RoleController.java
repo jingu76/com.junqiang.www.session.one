@@ -7,6 +7,8 @@ import com.junqiang.www.system.service.RoleBiz;
 import com.junqiang.www.system.service.impl.RoleBizImpl;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,7 @@ import java.util.Set;
 
 @RequestMapping("/role.do")
 public class RoleController {
-
+    private static Logger logger = LoggerFactory.getLogger(RoleController.class);
 
     @Resource(name = "roleBizImpl")
     private RoleBiz roleBiz;
@@ -38,6 +40,7 @@ public class RoleController {
     @RequiresRoles("admin")
     @RequestMapping("role.view")
     public String roleView(Model model) {
+        logger.trace("roleView");
         model.addAttribute("roleList", roleBiz.findAll());
         return "/admin/system/role/role";
     }
@@ -45,6 +48,7 @@ public class RoleController {
     @RequiresRoles("admin")
     @RequestMapping("role_add.view")
     public String roleAddView(Model model) {
+        logger.trace("roleAddView");
         model.addAttribute("roleList", roleBiz.findAll());
         return "/admin/system/role/role_add";
     }
@@ -52,6 +56,7 @@ public class RoleController {
     @RequiresRoles("admin")
     @RequestMapping("add")
     public String add(Role role, RedirectAttributes redirectAttributes) {
+        logger.trace("add");
         roleBiz.createRole(role);
         return "redirect:/role.do/role.view";
     }
@@ -59,6 +64,7 @@ public class RoleController {
     @RequiresRoles("admin")
     @RequestMapping("delete")
     public String delete(Long id, RedirectAttributes redirectAttributes) {
+        logger.trace("delete");
         roleBiz.deleteRole(id);
         return "redirect:/role.do/role.view";
     }

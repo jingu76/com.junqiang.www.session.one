@@ -35,35 +35,62 @@ public class SectionBizImpl implements SectionBiz {
     @Transactional
     @Override
     public void delete(int secId) {
-        sectionDao.delete(secId);
-        timetableDao.delete(secId);
+        try {
+            sectionDao.delete(secId);
+            timetableDao.delete(secId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void add(Section section) {
-        sectionDao.add(section);
+        try {
+            sectionDao.add(section);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public List<SectionCustom> findAllCustom() {
-        return sectionDao.findAllCustom();
+        try {
+            return sectionDao.findAllCustom();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<String> findAllCourseTitle() {
-        return courseDao.findAllCourseTitle();
+        try {
+            return courseDao.findAllCourseTitle();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
 
     @Override
     public List<Staff> findAllStaff() {
-        return staffDao.findAll();
+        try {
+            return staffDao.findAll();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public void addTimetable(Timetable timetable) {
-        timetableDao.add(timetable);
+        try {
+            timetableDao.add(timetable);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
