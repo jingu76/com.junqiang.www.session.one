@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by c0de8ug on 16-2-11.
  */
-@Service
+@Service("clazzBizImpl")
 public class ClazzBizImpl implements ClazzBiz {
 
     @Resource
@@ -35,9 +35,9 @@ public class ClazzBizImpl implements ClazzBiz {
         clazzDao.add(clazz);
     }
 
-    public void delete(int clazzId) {
-        clazzDao.delete(clazzId);
-    }
+//    public void delete(int clazzId) {
+//        clazzDao.delete(clazzId);
+//    }
 
     public List<Class> findAll() {
         return clazzDao.findAll();

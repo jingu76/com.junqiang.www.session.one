@@ -29,12 +29,12 @@ public class ClazzController {
         return "redirect:/clazz.do/clazz.view";
     }
 
-    @RequiresRoles("admin")
-    @RequestMapping("delete")
-    public String delete(int clazzId) {
-        clazzBiz.delete(clazzId);
-        return "redirect:/clazz.do/clazz.view";
-    }
+//    @RequiresRoles("admin")
+//    @RequestMapping("delete")
+//    public String delete(int clazzId) {
+//        clazzBiz.delete(clazzId);
+//        return "redirect:/clazz.do/clazz.view";
+//    }
 
     @RequiresRoles("admin")
     @RequestMapping("clazz.view")
