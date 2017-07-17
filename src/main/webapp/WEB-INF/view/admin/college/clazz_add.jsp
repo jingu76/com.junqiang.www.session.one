@@ -21,24 +21,17 @@
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/clazz.do/add" method="get">
                                 <label>所属分公司</label>
-                                <select onchange="test(this)" class="form-control" name="deptName">
+                                <select onchange="test(this)" class="form-control" name="compName">
                                     <option>-请选择-</option>
-                                    <c:forEach var="deptName" items="${deptNameList}">
-                                        <option>${deptName}</option>
+                                    <c:forEach var="compName" items="${deptNameList}">
+                                        <option>${compName}</option>
                                     </c:forEach>
                                 </select>
                                 <label>所属部门</label>
-                                <select id="spec" class="form-control" name="specName">
+                                <select id="spec" class="form-control" name="deptName">
                                     <option>-请选择-</option>
                                 </select>
                                 <label>团队名称</label>
-                                <!--
-                                                                            <select class="form-control" name="year">
-                                                                                <c:forEach var="term" items="${termList}">
-                                                                                    <option value="${term.val}">${term.text}</option>
-                                                                                </c:forEach>
-                                                                            </select>
-                                -->
                                 <input class="form-control" name="teamName">
                                 <%--<select class="form-control" name="departmentName">--%>
                                 <%--<c:forEach var="speciality" items="${speclities}">--%>

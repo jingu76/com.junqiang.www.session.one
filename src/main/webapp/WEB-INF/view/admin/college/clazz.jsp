@@ -31,11 +31,11 @@
                                 <tbody>
                                 <c:forEach var="clazz" items="${clazzList}">
                                     <tr>
-                                        <td>${clazz.clazzId}</td>
-                                        <td>${clazz.specName}</td>
+                                        <td>${clazz.compName}</td>
+                                        <td>${clazz.deptName}</td>
                                         <td>${clazz.teamName}</td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/clazz.do/delete?clazzId=${clazz.clazzId}"
+                                            <a href="${pageContext.request.contextPath}/clazz.do/delete?teamName=${clazz.teamName}"
                                                onclick="return confirm('是否要删除该团队')">删除</a>
                                         </td>
                                     </tr>
