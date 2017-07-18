@@ -5,7 +5,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">系管理</h1>
+            <h1 class="page-header">分公司管理</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -13,15 +13,15 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        系管理
+                        分公司管理
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/dept.do/add" method="get">
-                                <label>系名</label>
-                                <input class="form-control" name="deptName">
                                 <label></label>
+                                <input class="form-control" name="deptName">
+                               <label></label>
                                 <button type="submit"
                                         class="btn btn-primary form-control">添加
                                 </button>

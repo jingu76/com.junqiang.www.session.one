@@ -22,10 +22,10 @@
 
                                 <thead>
                                 <tr>
-                                    <th>所属分公司</th>
-                                    <th>所属部门</th>
-                                    <th>团队名称</th>
-                                    <th>操作</th>
+                                    <th width="30%">所属分公司</th>
+                                    <th width="30%">所属部门</th>
+                                    <th width="30%">团队名称</th>
+                                    <th width="10%">操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>

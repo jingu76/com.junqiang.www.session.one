@@ -6,7 +6,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">添加专业</h1>
+            <h1 class="page-header">添加部门</h1>
         </div>
         <div class="panel-heading">
         </div>
@@ -20,13 +20,17 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/spec.do/add" method="get">
-                                <label>系名</label>
+                                <label>公司名称</label>
                                 <select class="form-control" name="deptName">
                                     <c:forEach var="deptName" items="${deptNameList}">
                                         <option>${deptName}</option>
                                     </c:forEach>
                                 </select>
-                                <label>专业名</label>
+                                <label>部门名称</label>
+                                <input class="form-control" name="specName">
+                                <label>负责人</label>
+                                <input class="form-control" name="specName">
+                                <label>审核人</label>
                                 <input class="form-control" name="specName">
                                 <label></label>
                                 <button type="submit"

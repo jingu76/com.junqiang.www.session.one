@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
         <div>
-            <h1 class="page-header">专业管理</h1>
+            <h1 class="page-header">部门管理</h1>
         </div>
         <c:forEach var="entry" items="${deptAndSpec}">
             <div class="row">
@@ -22,15 +22,19 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th>部门名称</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th width="50%">部门名称</th>
+                                        <th width="15%">负责人</th>
+                                        <th width="15%">审核人</th>
+                                        <th width="10%"></th>
+                                        <th width="10%"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <c:forEach var="specName" items="${entry.specName}">
                                         <tr>
                                             <td>${specName}</td>
+                                            <td></td>
+                                            <td></td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/spec.do/spec_update.view?specName=${specName}">修改</a>
                                             </td>
@@ -55,7 +59,7 @@
         </c:forEach>
 
     </div>
-    <a href="${pageContext.request.contextPath}/spec.do/spec_add.view" class="btn btn-primary" role="button">添加专业</a>
+    <a href="${pageContext.request.contextPath}/spec.do/spec_add.view" class="btn btn-primary" role="button">添加部门</a>
     <!-- /.container-fluid -->
 </div>
 </div>
