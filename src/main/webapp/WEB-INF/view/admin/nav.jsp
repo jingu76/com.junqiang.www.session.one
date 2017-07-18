@@ -122,6 +122,10 @@
                         <a href="${pageContext.request.contextPath}/orderbook.do/orderbook_review.view/"><i class="fa fa-book fa-fw"></i>
                             耗材申请审核</a>
                     </li>
+                     <li>
+                        <a href="${pageContext.request.contextPath}/report.do/report_review.view/"><i class="fa fa-book fa-fw"></i>
+                            报表</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

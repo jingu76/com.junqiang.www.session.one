@@ -21,15 +21,19 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>分公司名称</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th width ="50%">分公司名称</th>
+                                    <th width ="15%">负责人</th>
+                                    <th width ="15%">审核人</th>
+                                    <th width ="10%"></th>
+                                    <th width ="10%"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach var="dept" items="${deptList}">
                                     <tr>
                                         <td>${dept.deptName}</td>
+                                        <td></td>
+                                        <td></td>
                                         <td>
                                             <a href="${pageContext.request.contextPath}/dept.do/dept_update.view?deptId=${dept.deptId}&deptName=${dept.deptName}">修改</a>
                                         </td>

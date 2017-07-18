@@ -19,8 +19,12 @@
                     <div class="panel-body">
                         <div class="dataTable_wrapper">
                             <form action="${pageContext.request.contextPath}/dept.do/add" method="get">
-                                <label></label>
+                               <label>公司名称</label>
                                 <input class="form-control" name="deptName">
+                               <label>负责人</label>
+                                <input class="form-control" name="dept">
+                               <label>审核人</label>
+                                <input class="form-control" name="dept">
                                <label></label>
                                 <button type="submit"
                                         class="btn btn-primary form-control">添加

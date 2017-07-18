@@ -25,7 +25,7 @@
                                     <th>耗材名称</th>
                                     <th>型号</th>
                                     <th>价格</th>
-                                    <th>所属团队名称</th>
+                                    <th>生产厂家</th>
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -44,7 +44,7 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/course.do/course_add.view" class="btn btn-primary" role="button">添加课程</a>
+                            <a href="${pageContext.request.contextPath}/course.do/course_add.view" class="btn btn-primary" role="button">添加耗材</a>
                         </div>
                         <!-- /.table-responsive -->
                     </div>
