@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
-/**
- * Created by c0de8ug on 16-2-11.
- */
 @Controller
 @RequestMapping("clazz.do")
 public class ClazzController {
@@ -22,15 +19,19 @@ public class ClazzController {
 
     @RequiresRoles("admin")
     @RequestMapping("add")
-    public String add(String deptName, String specName, String teamName) {
+    public String add(String compName, String deptName, String teamName) {
 
-        System.out.print(deptName+":"+specName+":"+teamName);
-        clazzBiz.add(deptName, specName, teamName);
+        System.out.print(compName+":"+deptName+":"+teamName);
+        clazzBiz.add(compName, deptName, teamName);
         return "redirect:/clazz.do/clazz.view";
     }
 
-//    @RequiresRoles("admin")
-//    @RequestMapping("delete")
+    @RequiresRoles("admin")
+    @RequestMapping("delete")
+    public String delete(String teamName) {
+        clazzBiz.delete(teamName);
+        return "redirect:/clazz.do/clazz.view";
+    }
 //    public String delete(int clazzId) {
 //        clazzBiz.delete(clazzId);
 //        return "redirect:/clazz.do/clazz.view";
