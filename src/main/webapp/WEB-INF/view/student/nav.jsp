@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>耗材预定系统</title>
+    <title>OPEX计划采购系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

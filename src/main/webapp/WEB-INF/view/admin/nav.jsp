@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>浙江建德尖峰水泥有限公司耗材计划系统</title>
+    <title>OPEX计划采购系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/bower_components/bootstrap/dist/css/bootstrap.min.css"
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">浙江建德尖峰水泥有限公司耗材计划系统</a>
+            <a class="navbar-brand" href="#">OPEX计划采购系统</a>
         </div>
         <!-- /.navbar-header -->
 
