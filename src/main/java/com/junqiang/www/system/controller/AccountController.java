@@ -39,17 +39,26 @@ public class AccountController {
 
     @RequiresAuthentication
     @RequestMapping("update")
-    public String update(HttpSession session, String password) {
+    public String update(HttpSession session, String password, String oldPassword, String password2) {
         logger.trace("update");
-        String id = (String) session.getAttribute("username");
         User user;
-
-        System.out.print(id);
-        System.out.print("....."+password +"\n\r");
+        String id = (String) session.getAttribute("username");
         user = accountBiz.findById(id);
-        userBiz.changePassword(id, password);
-        //System.out.print(user.getSalt());
-      //  accountBiz.updatePassword(id, password);
+        System.out.print(user+"oldpasswd:"+oldPassword);
+
+        if (password2==password){
+            if (user.getPassword()==oldPassword) {
+                userBiz.changePassword(id, password);
+                //System.out.print(user.getSalt());
+                //  accountBiz.updatePassword(id, password);
+            }else{
+                logger.error("原密码错误");
+                System.out.print("原密码错误");
+            }
+        }else{
+            logger.error("两次输入新密码不相等");
+            System.out.print("两次输入新密码不相等");
+        }
         return "redirect:/account.do/profile.view";
     }
 }
