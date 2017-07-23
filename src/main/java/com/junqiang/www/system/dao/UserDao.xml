@@ -12,17 +12,32 @@
         <result property="salt" column="salt"/>
         <result property="roleIdsStr" column="role_ids"/>
     </resultMap>
+
+    <resultMap id="salt_map" type="String">
+        <id property="userId" column="user_id"/>
+        <result property="salt" column="salt"/>
+    </resultMap>
+
     <!--TODO 有严重的问题,这里要换成自增的id,把user表增加一个id字段,和username-->
     <select id="findAll" resultMap="user_map">
         SELECT * FROM user WHERE user_id != 'admin'
     </select>
 
+
     <select id="findById" parameterType="String" resultMap="user_map">
         SELECT * FROM user WHERE user_id = #{value}
     </select>
 
+    <select id="getSalt" parameterType="String" resultMap="salt_map">
+        SELECT salt FROM user WHERE user_id = 'admin'
+    </select>
+
+    <!--<update id="update" parameterType="User">-->
+        <!--UPDATE user SET password = #{password} ,authority = #{authority} WHERE user_id = #{userId}-->
+    <!--</update>-->
+
     <update id="update" parameterType="User">
-        UPDATE user SET password = #{password} ,authority = #{authority} WHERE user_id = #{userId}
+        UPDATE user SET password = #{password}, salt= #{salt} WHERE user_id = #{userId}
     </update>
 
     <update id="updatePassword" parameterType="map">

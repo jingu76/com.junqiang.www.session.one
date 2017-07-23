@@ -9,5 +9,9 @@ public interface AccountBiz {
 
     public User findByIdAndPassword(String username, String password);
 
+    public User findById(String id);
+
     public void updatePassword(String id, String password);
+
+    public String getSalt(String id);
 }

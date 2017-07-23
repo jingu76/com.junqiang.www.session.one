@@ -26,6 +26,16 @@ public class AccountBizImpl implements AccountBiz {
         }
     }
 
+    @Override
+    public User findById(String username) {
+        try {
+            return userDao.findById(username);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     @Override
     public void updatePassword(String id, String password) {
@@ -33,6 +43,16 @@ public class AccountBizImpl implements AccountBiz {
             userDao.updatePassword(id, password);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String getSalt(String id) {
+        try {
+            return userDao.getSalt(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
     }
 }

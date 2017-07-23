@@ -17,6 +17,8 @@ public interface UserDao {
 
     public void add(User user);
 
+    public String getSalt(String id);
+
     public void delete(String id);
 
     public User findByIdAndPassword(@Param("id") String username, @Param("password") String password);
