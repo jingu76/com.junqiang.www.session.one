@@ -37,6 +37,28 @@
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        个人信息修改
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <form action="${pageContext.request.contextPath}/account.do/update" method="get">
+                                <label>Email</label>
+                                <input class="form-control" name="email">
+                                <label></label>
+                                <button type="submit"
+                                        class="btn btn-primary form-control">确定
+                                </button>
+                            </form>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
             </div>
             <!-- /.col-lg-12 -->
         </div>
