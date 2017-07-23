@@ -26,6 +26,7 @@ public class LoginController {
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
     @Resource(name = "userBizImpl")
     UserBiz userBiz;
+    User user;
 
     @RequestMapping("login")
     public String login(HttpServletRequest req, Model model, HttpSession session) {
@@ -39,23 +40,28 @@ public class LoginController {
         } else if (exceptionClassName != null) {
             error = "其他错误：" + exceptionClassName;
         }
-
-        //TODO 这里以后可以把角色更换成资源控制后动态生成页面,（-->这里有疑问-->是不是可以使用自定义角色？shiro张开涛的16章有个自定义标签扫描出的角色）
+       //TODO 这里以后可以把角色更换成资源控制后动态生成页面,（-->这里有疑问-->是不是可以使用自定义角色？shiro张开涛的16章有个自定义标签扫描出的角色）
         org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
         boolean isAuthenticated = subject.isAuthenticated();
 
         if (isAuthenticated) {
             String principal = (String) subject.getPrincipal();
-            session.setAttribute("username", principal);
 
-            switch (principal) {
-                case "admin":
+            session.setAttribute("username", principal);
+            System.out.print("登录："+ principal);
+
+            user = userBiz.findByUsername(principal);
+
+            System.out.printf("登录：%s", user.getRoleIdsStr());
+
+            switch (user.getRoleIdsStr()) {
+                case "1":
                     return "/admin/main";
-                case "teacher":
+                case "3":
                     return "/teacher/main";
-                case "student":
+                case "2":
                     return "/student/main";
-                case "supplier":
+                case "4":
                     return "redirect:supplier.do/supplier.view";
             }
         }

@@ -18,9 +18,6 @@ import javax.annotation.Resource;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-/**
- * Created by c0de8ug on 16-2-9.
- */
 
 @Service
 public class UserBizImpl implements UserBiz {
@@ -44,18 +41,13 @@ public class UserBizImpl implements UserBiz {
         List<UserVo> userVoList = new ArrayList<>();
         try {
             List userList = userDao.findAll();
-
-
             Iterator iterator = userList.iterator();
-
             while (iterator.hasNext()) {
                 StringBuilder s = new StringBuilder();
                 User user = (User) iterator.next();
                 List<Long> roleIds = user.getRoleIds();
-
                 UserVo userVo = new UserVo();
                 BeanUtils.copyProperties(userVo, user);
-
                 if (roleIds != null) {
                     int i = 0;
                     int size = roleIds.size();
@@ -105,14 +97,14 @@ public class UserBizImpl implements UserBiz {
         try {
             passwordHelper.encryptPassword(user);
             userDao.add(user);
-            String id = user.getUserId();
-            String teacherRoleId = roleDao.findByDescription("老师").getId().toString();
-            if (user.getRoleIdsStr().indexOf(teacherRoleId) != -1) {
-                Staff staff = new Staff();
-                staff.setStaffId(id);
-                staff.setStaffName(id);
-                staffDao.add(staff);
-            }
+//            String id = user.getUserId();
+//            String teacherRoleId = roleDao.findByDescription("老师").getId().toString();
+//            if (user.getRoleIdsStr().indexOf(teacherRoleId) != -1) {
+//                Staff staff = new Staff();
+//                staff.setStaffId(id);
+//                staff.setStaffName(id);
+//                staffDao.add(staff);
+//            }
 
         }catch (Exception e){
             e.printStackTrace();
